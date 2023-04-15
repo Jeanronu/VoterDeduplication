@@ -1,6 +1,6 @@
-<h1 style="text-align: center;">Lab 7: Deduplication and Hash Tables</h1>
+<h1 style="text-align: center;">Lab 8: Deduplication and Hash Tables</h1>
 <h3 style="text-align: center;">Haverford CS 106 - Introduction to Data Structures</h3>
-<h3 style="text-align: center;">Due: Thursday May, 12th at 11:59pm </h3>
+<h3 style="text-align: center;">Due: Friday May, 12th at 12:00pm (Noon) </h3>
 <h3 style="text-align: center;">Extra credit, not required </h3>
 
 
@@ -17,7 +17,7 @@ must regularly update these voting rolls in order to account for deaths and newl
 registered voters. Some states additionally regularly audit their voting rolls and remove
 voters based on various rules – many of these rules have been criticized for being
 unnecessarily harsh and purposefully suppressing the vote. In the 2018 election in Georgia, an “exact match” rule was instituted to require a voter’s name as listed on their
-government-issued ID (e.g., their drivers license) to exactly match their name as listed on the voting rolls. Voters whose names did not match exactly were removed from the voting
+government-issued ID (e.g., their driver's license) to exactly match their name as listed on the voting rolls. Voters whose names did not match exactly were removed from the voting
 rolls.
 
 Ideally, to examine the impact of such a rule, we would count the number of people we
@@ -43,7 +43,7 @@ Note that you only need the lastName, firstName, middleName, and birthdate colum
 Each row in the data represents a single registered voter, and the attributes (columns) include their name, address, and other voting information.
 The statewide information is divided by county across 4 files - throughout this assignment it’s fine to use any of those 4 files.
 Note that you’ll need to create a way to programmatically read in a given file (just one) for testing.
-Recall from previous labs that you can read in data from a file using the OpenCSV library `CSVReaderHeaderAware`.
+Recall from previous labs that you can read in data from a file using the given `CSVReader` class.
 You should feel free to do that for this lab as well.
 
 Your job is to build a program that will read in voter roll data to an ArrayList of Voter objects so that deduplication can be performed on the data.
@@ -75,16 +75,16 @@ ArrayList of Voter objects, initializing the respective class attribute. Be sure
 the file in order to handle errors and exceptions.
 
 ### 2.3. Methods:
-In this class you should implement three deduplication methods that, but the end of them, should initialize the attribute
+In this class you should implement three deduplication methods that, by the end of them, should initialize the attribute
 ArrayList that contains the deduplicated voter list. The methods you should implement are:
 
 1. `void allPairsDeduplication()`: Implement a method which deduplicates the list with the all pairs strategy.
    As a reminder, all pairs has the program iterate through the list and compare each element to every other element to
    check for duplicates. Remember to correctly call your `compareTo` while checking for duplicates!
-   At the end, return a list with the duplicate Voters removed.
+   At the end, produce a list with the duplicate Voters removed.
 
 2. `void sortAndRemoveDeduplication()`: Implement a method which sorts the ArrayList of Voters, then iterates through
-   and removes each duplicate Voter. To do this, you may use the sort() method built into the `Collections`
+   and removes each duplicate Voter. Be careful not to modify the original ArrayList of voters. To do this, you may use the sort() method built into the `Collections`
    class in Java (which `ArrayLists` are a member of). These are imported with `java.util.*`. Example:
 
 ```
@@ -120,7 +120,7 @@ You should also include some additional methods: original list size, deduplicate
 ## 3. `Main` class
 Here you'll read the filename from one of the available voting files in `vote_files` from the command line, use it to
 initialize an object from the `VoterDeduplication` class and try out all the deduplication methods, computing some data about
-it them along the way. One data in particular you should print is the elapsed time to run each method. You can do it using
+them along the way. One data in particular you should print is the elapsed time to run each method. You can do it using
 `System.currentTimeMillis()`, as in:
 ```
 long start = System.currentTimeMillis();
@@ -182,7 +182,7 @@ Duplicates found: 93
 Elapsed time: 83 milliseconds
 ```
 
-# Notes for Lab 7
+# Notes for Lab 8
 
 - Use `.equals()` when comparing strings.  For this lab, you do not need to overwrite the `.equals()` method, you can use `String` to compare two strings directly.
 - Consult the [documentation](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html) to learn about the`.compareTo()` method that you will need to override for the Voter data.
